@@ -2,19 +2,20 @@ import React from 'react'
 import logo from "../../public/Meubel House_Logos-05.png";
 import Image from 'next/image';
 import rightIcon from '../../public/dashicons_arrow-down-alt2.png'
-import adress from '../../public/Images (3).png'
-// import phone from '../../public/Images (3).png'
-// import phone from '../../public/Images (3).png'
+import adress from '../../public/Vector (3).png'
+import phone from '../../public/Vector (4).png'
+import time from '../../public/bi_clock-fill.png'
+import AboutWeb from './AboutWeb';
 
 function Contact() {
   return (
-    <div className='max-w-[1058px] mx-auto'>
+    <div>
 
       {/* Top Section */}
-      <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[121px] mt-[100px] px-4">
-       <Image src={logo} alt='logo' width={1000} height={1000} className='w-[60px] md:w-[77px] h-[60px] md:h-[77px]'/>
-        <h2 className="text-[32px] md:text-[48px] font-medium">Contact</h2>
-        <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
+      <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[61px] mt-[100px] px-4">
+        <Image src={logo} alt='logo' width={1000} height={1000} className='w-[60px] md:w-[77px] h-[60px] md:h-[77px]'/>
+         <h2 className="text-[32px] md:text-[48px] font-medium">Contact</h2>
+         <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
           Home
           <Image
             src={rightIcon}
@@ -24,34 +25,85 @@ function Contact() {
             className="w-[20px] h-[20px]"
           />
           Contact
-        </p>
-      </div>
+         </p>
+       </div>
 
-      <div className='mt-[98px] flex flex-col justify-center text-center w-full mt-[]98px max-w-[1140px]'>
+       <div className='mt-[98px] flex flex-col justify-center text-center w-full mx-auto max-w-[1140px]'>
 
         <h2 className='text-[36px] font-semibold'>Get In Touch With Us</h2>
         <p className='text-text1'>For More Information About Our Product & Services. Please Feel Free To Drop Us </p>
         <p className='text-text1'>An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
 
-      </div>
+       </div>
 
-      <div className='flex'>
+       <div className='flex mx-[191px]'>
         
-        <div className='flex flex-col w-[393px] h-[537px]'>
+        <div className='flex flex-col w-[393px] h-[537px] mt-[110px]'>
 
-            <ul>
-                <li>
-                <Image src={adress} alt='adresss' width={1000} height={1000} className='w-[60px] md:w-[77px] h-[60px] md:h-[77px]'/>
+            <ul className='space-y-10'>
+                <li className='flex gap-5'>
+                  <Image src={adress} alt='adresss' width={1000} height={1000} className='w-[22px] h-[27px]'/>
+                  <div>
+                     <p className='text-[24px] font-medium'>Address</p>
+                     <p>236 5th SE Avenue, New York</p>
+                     <p> NY10000, United</p>
+                     <p> States</p>
+                  </div>
                 </li>
-                <li></li>
-                <li></li>
+                <li className='flex gap-5'>
+                  <Image src={phone} alt='adresss' width={1000} height={1000} className='w-[30px] h-[30px]'/>
+                  <div>
+                    <p className='text-[24px] font-medium'>Phone</p>
+                    <p>Mobile: +(84) 546-6789</p>
+                    <p> Hotline: +(84) 456-6789</p> 
+                  </div>
+                </li>
+                <li className='flex gap-5'>
+                  <Image src={time} alt='adresss' width={1000} height={1000} className='w-[23px] h-[23px]'/>
+                  <div>
+                    <p className='text-[24px] font-medium'>Working Time</p>
+                    <p>Monday-Friday: 9:00 -</p>
+                    <p> 22:00</p>
+                    <p>Saturday-Sunday: 9:00 -</p>
+                    <p>21:00</p>
+                  </div>
+                </li>
             </ul>
 
         </div>
-        <div></div>
+
+        <div className='w-[635px] h-[923px] flex flex-col pt-[119px] px-[52px]'>
+
+            <ul className='space-y-9'>
+                <li className='flex flex-col gap-[22px]'>
+                    <label>Your Name</label>
+                    <input type="text" placeholder='Write Yore Name Here..' className='w-[529px] h-[75px] border-2 placeholder:pl-3 rounded-lg border-text1' />
+                </li>
+                <li className='flex flex-col gap-[22px]'>
+                    <label>Email Address</label>
+                    <input type="email" placeholder='Write Yore Email Here..' className='w-[529px] h-[75px] border-2 placeholder:pl-3 rounded-lg border-text1' />
+                </li>
+                <li className='flex flex-col gap-[22px]'>
+                    <label>Subject</label>
+                    <input type="text" placeholder='Write Yore Subject Here..' className='w-[529px] h-[75px] border-2 placeholder:pl-3 rounded-lg border-text1' />
+                </li>
+                <li className='flex flex-col gap-[22px]'>
+                    <label>Message</label>
+                    <textarea placeholder='Write Your Message...' className='w-[527px] placeholder:pl-3 rounded-lg border-2 border-text1 h-[120px]'></textarea>
+                </li>
+                <li>
+                    <button className='w-[237px] h-[55px] bg-primary1 hover:opacity-80 mt-[13px]' type='submit'>Submit</button>
+                </li>
+            </ul>
+           
+        </div>
 
       </div>
-
+      
+       <div>
+          
+          <AboutWeb/>
+       </div>
 
 
     </div>
