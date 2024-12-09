@@ -4,7 +4,7 @@ import { data } from '../data/productData'; // Ensure this imports your product 
 
 const ProductCard = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[32px] justify-center ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[16px] md:gap-[32px] px-4 lg:mx-[99px] mt-[46px] ">
       {data.map((product, index) => (
         <div
           key={index}
