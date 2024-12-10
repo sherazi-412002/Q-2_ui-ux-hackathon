@@ -13,7 +13,7 @@ function page() {
     <div className="max-w-full mx-auto">
 
       {/* Top Section */}
-      <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[121px] mt-[100px] px-4">
+      <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[121px] mt-[100px]">
         <h2 className="text-[32px] md:text-[48px] font-medium">Shop</h2>
         <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
           Home
@@ -71,7 +71,7 @@ function page() {
       </div>
 
       {/* Product Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[16px] md:gap-[32px] px-4 justify-center lg:mx-[99px] mt-[46px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[16px] md:gap-[32px] justify-center lg:mx-[99px] mt-[46px]">
         {data2.map((product, index) => (
           <div
             key={index}
