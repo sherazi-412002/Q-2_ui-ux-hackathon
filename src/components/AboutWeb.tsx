@@ -1,4 +1,3 @@
-
 import React from 'react';
 import trophy from '../../public/trophy 1.png';
 import guarantee from '../../public/guarantee.png';
@@ -8,10 +7,10 @@ import Image from 'next/image';
 
 function AboutWeb() {
   return (
-    <section className="w-full bg-primary2 lg:w-[1334px] h-auto lg:h-[270px] mx-auto px-4 sm:px-6 lg:px-[53px] flex items-center ">
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-[56px] items-center">
+    <section className="w-full bg-primary2 lg:w-[1440px] h-auto lg:h-[270px] mx-auto p-5 lg:p-0 lg:px-[53px] flex justify-center lg:items-center ">
+      <div className="flex flex-col lg:flex-row  gap-10 lg:gap-[56px] items-center">
         {/* High Quality */}
-        <div className="flex gap-4 lg:gap-[2px] items-center text-center lg:text-left">
+        <div className="flex gap-4 lg:gap-[2px]  items-center text-center lg:text-left">
           <Image
             src={trophy}
             alt="quality"

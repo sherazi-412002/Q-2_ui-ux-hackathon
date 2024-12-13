@@ -2,6 +2,7 @@
 import HeroSection from "@/components/HeroSection";
 import Products from "@/components/Products";
 import RangeSection from "@/components/RangeSection";
+import RoomInpiration from "@/components/RoomInpiration";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <br />
       <Products/>
       <br />
+      <RoomInpiration/>
 
   
     </div>
