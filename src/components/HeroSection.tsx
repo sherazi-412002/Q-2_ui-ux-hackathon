@@ -2,8 +2,8 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <div className="HeroSection bg-cover bg-center w-full lg:w-[1440px] h-auto lg:h-[717px] mt-[100px] flex justify-center lg:pl-[739px] lg:pt-[170px] ">
-      <div className="bg-transparent lg:bg-primary2 space-y-6 p-6 lg:h-[443px] lg:w-[643px] lg:pl-[41px] lg:pt-[62px]">
+    <div className="HeroSection bg-cover bg-center w-full lg:w-[1440px] h-[500px] lg:h-[717px] mt-[100px] flex justify-center lg:pl-[739px] lg:pt-[170px] ">
+      <div className="bg-opacity-80 lg:bg-opacity-100 bg-primary2 space-y-6 p-6 w-[380px] my-auto lg:my-0 rounded-lg h-[330px] lg:h-[443px] lg:w-[643px] lg:pl-[41px] lg:pt-[62px]">
         <p className="font-semibold text-[16px] text-center lg:text-left">New Arrival</p>
 
         <h2 className="text-[36px] lg:text-[52px] font-bold text-primary1 leading-tight text-center lg:text-left">

@@ -2,7 +2,6 @@ import React from 'react'
 import ciIcon from '../../../public/ci_grid-big-round.png'
 import biIcon from '../../../public/bi_view-list.png'
 import systemIcon from '../../../public/system-uicons_filtering.png'
-import rightIcon from '../../../public/dashicons_arrow-down-alt2.png'
 import { data2 } from '../../data/productData'
 import shareIcon from '../../../public/gridicons_share.png' 
 import compareIcon from '../../../public/compare-svgrepo-com 1.png' 
@@ -10,26 +9,15 @@ import likeIcon from '../../../public/Vector (5).png'
 import numberLine from '../../../public/Frame 72.png'
 import Image from 'next/image'
 import AboutWeb from '@/components/AboutWeb'
+import Banner from '@/components/Banner'
 
 function page() {
   return (
     <div className="max-w-[1440px] w-full flex flex-col items-center">
 
-      {/* Top Section */}
-      <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[121px] mt-[100px]">
-        <h2 className="text-[32px] md:text-[48px] font-medium">Shop</h2>
-        <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
-          Home
-          <Image
-            src={rightIcon}
-            alt="Icon"
-            width={20}
-            height={20}
-            className="w-[20px] h-[20px]"
-          />
-          Shop
-        </p>
-      </div>
+      {/* Top Banner */}
+      <Banner pageTitle='Shop' mainPage='Home' currentPage='Shop'/>
+
 
       {/* Middle Section */}
       <div className="w-full lg:w-[1440px] h-auto flex flex-wrap items-center justify-around bg-[#F9F1E7] px-4 py-6">

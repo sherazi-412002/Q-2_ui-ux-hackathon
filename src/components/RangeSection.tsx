@@ -6,13 +6,15 @@ import Image from 'next/image';
 
 const RangeSection = () => {
   return (
-    <section className="w-full max-w-[1183px] mx-auto mt-[57px] flex flex-col px-6 lg:px-0">
+    <section className="w-full max-w-[1183px] mx-auto mt-[57px] flex flex-col lg:px-0">
+
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center text-center">
         <h2 className="text-[24px] lg:text-[32px] font-bold text-text2">Browse The Range</h2>
         <p className="text-[16px] lg:text-[20px] text-text3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
-
+       
+       
       {/* Image Grid Section */}
       <div className="flex flex-col md:flex-row gap-[30px] mt-[40px] lg:mt-[63px]">
         {/* Dining Section */}

@@ -49,14 +49,16 @@ const Navbar = () => {
             <button  onClick={() => setIsSheetOpen(true)}>
             <Image src={cart} alt='cartIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
             </button>
+          
 
+            {/* Cart Section */}
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetContent side={"right"} className='w-[350px] h-[90vh] sm:w-[500px] lg:w-[1000px] sm:h-[90vh] flex flex-col justify-between'>
                 <SheetTitle>
                   <h1 className='text-[34px] font-bold'>Shopping Cart</h1> 
                 </SheetTitle>
                 <hr />
-                <div className=' mt-[42px] '>
+                <div className='mt-6 lg:mt-[42px] '>
                    <div className='flex flex-col gap-5'>
                     <div className='flex justify-around items-center'> 
                       <Image src={cartItem1} alt='cartItem1' height={1000} width={1000} className='w-[108px] h-[105px] rounded-lg'/>
@@ -79,16 +81,16 @@ const Navbar = () => {
                   </div>
 
 
-                  <div className='flex flex-col gap-7 mt-[160px]'>
+                  <div className='flex flex-col gap-7 mt-[80px] lg:mt-[160px]'>
                     <div className='flex'>
                       <p className='ml-[31px]'>Subtotal</p>
                       <p className='text-primary1 ml-[101px]'>Rs 520,000.00</p>
                     </div>
                     <hr />
                     <div className='text-[12px] flex justify-around mb-5'>
-                      <Link href={'/cart'}><Button className='rounded-2xl w-20 p-1 border-2 border-black' variant="outline" onClick={() => alert('Viewing full cart!')}>Cart</Button></Link>
-                      <Button className='rounded-2xl w-24 p-1 border-2 border-black' variant="outline" onClick={() => alert('Going to Checkout!')}>Checkout</Button>
-                      <Button className='rounded-2xl w-28 p-1 border-2 border-black' variant="outline" onClick={() => alert('Going to Comparison!')}>Comparison </Button>
+                      <Link href={'/cart'}><Button className='rounded-2xl w-20 p-1 border-2 border-black' variant="outline">Cart</Button></Link>
+                      <Button className='rounded-2xl w-24 p-1 border-2 border-black' variant="outline">Checkout</Button>
+                      <Button className='rounded-2xl w-28 p-1 border-2 border-black' variant="outline">Comparison </Button>
                     </div>
                   </div>
                 </div>
@@ -121,14 +123,15 @@ const Navbar = () => {
                 </SheetTitle>
 
                 <div className='flex flex-col gap-10 mt-20 items-center'>
-                 <div className='flex gap-5 sm:gap-[45px]'>
+                  <div className='flex gap-8 sm:gap-[45px]'>
             
-                  <Image src={alertPic} alt='alert' width={1000} height={1000} className='w-[28px] h-[28px]'/>
-                  <Image src={search} alt='searchIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
-                  <Image src={heart} alt='heartIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
-                  <Image src={cart} alt='cartIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
-  
-                 </div>
+                    <Image src={alertPic} alt='alert' width={1000} height={1000} className='w-[28px] h-[28px]'/>
+                    <Image src={search} alt='searchIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
+                    <Image src={heart} alt='heartIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
+                    <button  onClick={() => setIsSheetOpen(true)}>
+                      <Image src={cart} alt='cartIcon' width={1000} height={1000} className='w-[28px] h-[28px]'/>
+                    </button>  
+                  </div>
 
 
                  <div>

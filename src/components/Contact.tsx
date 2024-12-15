@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from "../../public/Meubel House_Logos-05.png";
 import Image from 'next/image';
-import rightIcon from '../../public/dashicons_arrow-down-alt2.png';
 import adress from '../../public/Vector (3).png';
 import phone from '../../public/Vector (4).png';
 import time from '../../public/bi_clock-fill.png';
@@ -10,29 +8,6 @@ import AboutWeb from './AboutWeb';
 function Contact() {
   return (
     <div>
-      {/* Top Section */}
-      <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[61px] mt-[100px]">
-        <Image
-          src={logo}
-          alt="logo"
-          width={1000}
-          height={1000}
-          className="w-[40px] md:w-[50px] h-[30px] md:h-[40px]"
-        />
-        <h2 className="text-[32px] md:text-[48px] font-medium">Contact</h2>
-        <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
-          Home
-          <Image
-            src={rightIcon}
-            alt="Icon"
-            width={20}
-            height={20}
-            className="w-[20px] h-[20px]"
-          />
-          Contact
-        </p>
-      </div>
-
       {/* Get in Touch Section */}
       <div className="mt-[50px] lg:mt-[98px] flex flex-col justify-center text-center w-full mx-auto max-w-[1140px] px-4 sm:px-6">
         <h2 className="text-[28px] md:text-[36px] font-semibold">
