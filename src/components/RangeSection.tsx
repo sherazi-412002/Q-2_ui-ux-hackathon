@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const RangeSection = () => {
   return (
-    <section className="w-full max-w-[1183px] mx-auto mt-[57px] flex flex-col lg:px-0">
+    <section className="w-[100%] max-w-[1183px] px-[10%] lg:mx-auto mt-[57px] flex flex-col lg:px-0">
 
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center text-center">
@@ -24,7 +24,7 @@ const RangeSection = () => {
             alt="Dining Room"
             width={1000}
             height={1000}
-            className="w-full max-w-[381px] h-auto lg:h-[480px] rounded"
+            className="w-full mx-[10%] lg:mx-0  max-w-[381px] h-auto lg:h-[480px] rounded"
           />
           <p className="text-[18px] lg:text-[24px] font-semibold text-text2 text-center">Dining</p>
         </div>
@@ -36,7 +36,7 @@ const RangeSection = () => {
             alt="Living Room"
             width={1000}
             height={1000}
-            className="w-full max-w-[381px] h-auto lg:h-[480px] rounded"
+            className="w-full mx-[10%] lg:mx-0  max-w-[381px] h-auto lg:h-[480px] rounded"
           />
           <p className="text-[18px] lg:text-[24px] font-semibold text-text2 text-center">Living</p>
         </div>
@@ -48,7 +48,7 @@ const RangeSection = () => {
             alt="Bedroom"
             width={1000}
             height={1000}
-            className="w-full max-w-[381px] h-auto lg:h-[480px] rounded"
+            className="w-full mx-[10%] lg:mx-0  max-w-[381px] h-auto lg:h-[480px] rounded"
           />
           <p className="text-[18px] lg:text-[24px] font-semibold text-text2 text-center">Bedroom</p>
         </div>

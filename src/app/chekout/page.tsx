@@ -9,56 +9,56 @@ function page() {
       <div className='flex justify-center gap-[26px]'>
 
         {/* Billing Section */}
-        <div className='w-[608px] h-[1714px]'>
+        <div className='w-[608px] h-[1714px] mt-[63px]'>
 
           <h2 className='text-[36px] font-semibold ml-[74px]'>Billing Details</h2>
           <ul className='ml-[76px] space-y-9'>
             <li className='flex gap-[31px]'>
               
-                <div>
+                <div className='flex flex-col gap-[22px]'>
                   <legend>First Name</legend>
                   <input type="text" className='w-[211px] h-[75px] rounded-lg border-black border-2' />
                 </div>
-                <div>
+                <div className='flex flex-col gap-[22px]'>
                   <legend>First Name</legend>
                   <input type="text" className='w-[211px] h-[75px] rounded-lg border-black border-2' />
                 </div>
             
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Company Name (Optional)</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Country / Region</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Street address</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Town / City</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Province</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>ZIP code</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Phone</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
-            <li>
+            <li className='flex flex-col gap-[22px]'>
               <legend>Email address</legend>
               <input type="text" className='w-[453px] h-[75px] rounded-lg border-black border-2' />
             </li>
             <li>
-              <input type="text" placeholder='Additional Information' className='w-[453px] h-[75px] rounded-lg border-black border-2' />
+              <input type="text" placeholder='Additional Information' className='w-[453px] placeholder:pl-3 h-[75px] rounded-lg border-black border-2' />
             </li>
           </ul>
 
@@ -101,7 +101,7 @@ function page() {
 
           </div>
 
-          <button className='w-[312px] h-[64px] justify-center rounded-lg border-2 border-black'>Place Order</button>
+          <button className='w-[312px] h-[64px] justify-center mt-[39px] rounded-lg border-2 border-black'>Place Order</button>
           
         </div>
       </div>
