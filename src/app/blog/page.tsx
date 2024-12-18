@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import rightIcon from '../../../public/dashicons_arrow-down-alt2.png';
 import blogImg1 from '../../../public/Rectangle 68.png';
 import blogImg2 from '../../../public/Rectangle 68 (1).png';
 import blogImg3 from '../../../public/Rectangle 68 (2).png';
@@ -14,28 +13,18 @@ import post5 from '../../../public/Rectangle 69 (4).png';
 import admin from '../../../public/dashicons_admin-users.png';
 import calender from '../../../public/uis_calender.png';
 import tag from '../../../public/ci_tag.png';
-import pagination from '../../../public/Frame 72.png';
 import searchIcon from '../../../public/akar-icons_search (1).png';
 import AboutWeb from '@/components/AboutWeb';
+import { PaginationOfPages } from '@/components/Pagination';
+import Banner from '@/components/Banner';
 
 function page() {
   return (
     <div className="w-full lg:w-[1440px]">
       {/* Top Section */}
-      <div className="TopBackgroundImg w-full flex flex-col items-center text-center h-[316px] pt-[121px] mt-[100px]">
-        <h2 className="text-[32px] md:text-[48px] font-medium">Blog</h2>
-        <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
-          Home
-          <Image
-            src={rightIcon}
-            alt="Icon"
-            width={20}
-            height={20}
-            className="w-[20px] h-[20px]"
-          />
-          Blog
-        </p>
-      </div>
+
+     <Banner mainPage='Home' pageTitle='Blog' currentPage='Blog'/>        
+    
 
       {/* Blog Content */}
       <div className="flex flex-col lg:flex-row gap-[30px] justify-center mt-[88px]">
@@ -126,12 +115,8 @@ function page() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center">
-        <Image
-          src={pagination}
-          alt="pagination"
-          className="w-[200px] md:w-[292px] lg:w-[392px] h-[40px] md:h-[60px] lg:h-[90px] mt-[40px] mb-[85px]"
-        />
+      <div className="flex justify-center mt-[60px] mb-[85px]">
+       <PaginationOfPages />
       </div>
       <div>
         <AboutWeb/>

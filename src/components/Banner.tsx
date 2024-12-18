@@ -1,13 +1,21 @@
 import Image from 'next/image'
 import React from 'react'
 import logo from "../../public/Meubel House_Logos-05.png";
-import rightIcon from '../../public/dashicons_arrow-down-alt2.png'
+
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 interface chilProps {
     pageTitle:string,
     mainPage:string,
-    currentPage:string
-
+    currentPage:string,
 }
 
 
@@ -27,17 +35,20 @@ const Banner:React.FC<chilProps> = (props) => {
           className="w-[60px] md:w-[66px] h-[50px] md:h-[40px]"
         />
         <h2 className="text-[32px] md:text-[48px] font-medium">{pageTitle}</h2>
-        <p className="flex gap-3 text-[14px] md:text-[16px] font-medium">
-          {mainPage}
-          <Image
-            src={rightIcon}
-            alt="Icon"
-            width={20}
-            height={20}
-            className="w-[20px] h-[20px]"
-          />
-          {currentPage}
-        </p>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/" className='font-medium text-[16px]'>{mainPage}</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{currentPage}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+  
+
+
       </div>
     </div>
   )

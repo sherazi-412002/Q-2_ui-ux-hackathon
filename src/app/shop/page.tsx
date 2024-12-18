@@ -6,10 +6,10 @@ import { data2 } from '../../data/productData'
 import shareIcon from '../../../public/gridicons_share.png' 
 import compareIcon from '../../../public/compare-svgrepo-com 1.png' 
 import likeIcon from '../../../public/Vector (5).png' 
-import numberLine from '../../../public/Frame 72.png'
 import Image from 'next/image'
 import AboutWeb from '@/components/AboutWeb'
 import Banner from '@/components/Banner'
+import { PaginationOfPages } from '@/components/Pagination'
 
 function page() {
   return (
@@ -148,12 +148,8 @@ function page() {
     </div>
 
       {/* Pagination */}
-      <div className="flex justify-center">
-        <Image
-          src={numberLine}
-          alt="numberLine"
-          className="w-[292px] md:w-[392px] h-[60px] md:h-[90px] mt-[40px] mb-[85px]"
-        />
+      <div className="flex justify-center  mt-[60px] mb-[85px]">
+        <PaginationOfPages/>
       </div>
 
       {/* About Section */}
