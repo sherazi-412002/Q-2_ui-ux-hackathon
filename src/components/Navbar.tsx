@@ -14,12 +14,14 @@ import { Menu } from 'lucide-react';
 import { BsBagX } from "react-icons/bs";
 import { IoCloseCircle } from "react-icons/io5";
 import { LuHeart, LuSearch, LuShoppingCart } from 'react-icons/lu';
+import { usePathname } from 'next/navigation';
 
 
 <BsBagX />
 
 const Navbar = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const pathName = usePathname();
 
   return (
     <div>
@@ -33,10 +35,21 @@ const Navbar = () => {
           <div>
 
             <ul  className='lg:flex gap-[30px] font-medium  xl:gap-[75px] hidden '>
-                <Link href={'/'}><li>Home</li></Link>
-                <Link href={'/shop'}><li>Shop</li></Link>
-                <Link href={'/blog'}><li>Blog</li></Link>
-                <Link href={'/contact'}><li>Contact</li></Link>
+                <Link href={'/'}><li 
+                className={`hover:text-primary1  transition-all ${
+                             pathName === "/" ? "text-primary1" : "text-black"}`}>Home</li></Link>
+
+                <Link href={'/shop'}><li
+                 className={`hover:text-primary1 transition-all   ${
+                             pathName === "/shop" ? "text-primary1" : "text-black"}`}>Shop</li></Link>
+
+                <Link href={'/blog'}><li
+                 className={`hover:text-primary1 transition-all ${
+                             pathName === "/blog" ? "text-primary1" : "text-black"}`}>Blog</li></Link>
+
+                <Link href={'/contact'}><li
+                 className={`hover:text-primary1 transition-all ${
+                             pathName === "/contact" ? "text-primary1" : "text-black"}`}>Contact</li></Link>
             </ul>
 
           </div>

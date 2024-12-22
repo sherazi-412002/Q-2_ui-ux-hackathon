@@ -13,7 +13,7 @@ import { PaginationOfPages } from '@/components/Pagination'
 
 function page() {
   return (
-    <div className="max-w-[1440px] w-full flex flex-col items-center">
+    <div className="max-w-[1440px] w-full flex flex-col items-center"> {/* */}
 
       {/* Top Banner */}
       <Banner pageTitle='Shop' mainPage='Home' currentPage='Shop'/>

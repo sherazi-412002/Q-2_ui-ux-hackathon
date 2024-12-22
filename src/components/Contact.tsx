@@ -23,7 +23,7 @@ function Contact() {
       </div>
 
       {/* Contact Details and Form */}
-      <div className="flex flex-col lg:flex-row justify-center mx-auto mt-[50px] lg:mt-[110px] px-4 sm:px-6 gap-10 lg:gap-[50px] max-w-[1140px]">
+      <div className="flex flex-col lg:flex-row justify-center mx-auto mt-[50px] lg:mt-[110px] px-4 pb-[63px] sm:px-6 gap-10 lg:gap-[50px] max-w-[1140px]">
         {/* Contact Details */}
         <div className="flex flex-col w-full lg:w-[393px]">
           <ul className="space-y-10">
@@ -129,11 +129,9 @@ function Contact() {
           </ul>
         </div>
       </div>
-       <br /><br />
       {/* About Section */}
-      <div>
-        <AboutWeb />
-      </div>
+      <AboutWeb />
+    
     </div>
   );
 }
