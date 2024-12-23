@@ -259,6 +259,7 @@ function page() {
           <button className="w-[250px] sm:w-[280px] lg:w-[312px] h-[50px] sm:h-[56px] lg:h-[64px] justify-center mt-[20px] lg:mt-[39px] rounded-lg border-2 border-black">
             Place Order
           </button>
+          <br /><br />
         </div>
       </div>
     </div>
