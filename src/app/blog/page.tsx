@@ -20,14 +20,14 @@ import Banner from '@/components/Banner';
 
 function page() {
   return (
-    <div className="w-full lg:w-[1440px]">
+    <div className="w-full">
       {/* Top Section */}
 
      <Banner mainPage='Home' pageTitle='Blog' currentPage='Blog'/>        
     
 
       {/* Blog Content */}
-      <div className="flex flex-col lg:flex-row gap-[30px] justify-center mt-[88px]">
+      <div className="flex flex-col px-8 xl:px-0 lg:flex-row gap-[30px] justify-center mt-[88px]">
         <div className="w-full lg:w-[820px] space-y-[40px]">
           {/* Blog Posts */}
           {[{ img: blogImg1, tag: 'Wood', title: 'Going all-in with millennial design' },

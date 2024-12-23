@@ -4,6 +4,7 @@ import cartItem from '../../../public/Group 146.png'
 import deleteIcon from '../../../public/ant-design_delete-filled.png'
 import AboutWeb from '@/components/AboutWeb';
 import Banner from '@/components/Banner';
+import Link from 'next/link';
 
 const page = () => {
   return (
@@ -14,7 +15,7 @@ const page = () => {
 
       {/* Cart Section */}
 
-      <div className='w-full lg:w-[1440px] h-auto lg:h-[525px] pt-[72px] px-4 sm:px-8 lg:px-[100px] flex flex-col lg:flex-row justify-between'>
+      <div className='w-full h-auto lg:h-[525px] pt-[72px] px-4 sm:px-8 lg:px-[100px] flex flex-col lg:flex-row justify-between'>
 
         <div className='w-full lg:w-[817px] h-auto flex flex-col'>
 
@@ -72,7 +73,7 @@ const page = () => {
               <div className='text-primary1'>250,000.00</div>
             </li>
             <li className='flex justify-center'>
-              <button className='p-3 border-2 h-[48px] sm:h-[54px] lg:h-[59px] w-[200px] sm:w-[210px] lg:w-[222px] border-black rounded-lg'>Check Out</button>
+              <Link href={'/checkout'}><button className='p-3 border-2 h-[48px] sm:h-[54px] lg:h-[59px] w-[200px] sm:w-[210px] lg:w-[222px] border-black rounded-lg'>Check Out</button></Link>
             </li>
           </ul>
 

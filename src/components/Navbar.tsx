@@ -17,16 +17,18 @@ import { LuHeart, LuSearch, LuShoppingCart } from 'react-icons/lu';
 import { usePathname } from 'next/navigation';
 
 
+
 <BsBagX />
 
 const Navbar = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const pathName = usePathname();
 
+
   return (
     <div>
 
-        <nav className='flex justify-around items-center top-0 w-full max-w-[1440px]  h-[100px] shadow-md shadow-[#dbdada] fixed z-50'>
+        <nav className='flex justify-around items-center top-0 w-full h-[100px] shadow-md shadow-[#dbdada] fixed z-50'>
           <div className='flex items-center'>
             <Image src={logo} alt='logo' width={500} height={500} className='w-[35px] xl:w-[50px] h-[26px] xl:h-[32px]'/>
             <h1 className='text-[24px] xl:text-[34px]  font-bold'>Furniro.</h1>
@@ -105,8 +107,8 @@ const Navbar = () => {
                     <hr />
                     <div className='text-[12px] flex justify-around mb-5'>
                       <Link href={'/cart'}><Button className='rounded-2xl w-20 p-1 border-2 border-black' variant="outline">Cart</Button></Link>
-                      <Button className='rounded-2xl w-24 p-1 border-2 border-black' variant="outline">Checkout</Button>
-                      <Button className='rounded-2xl w-28 p-1 border-2 border-black' variant="outline">Comparison </Button>
+                      <Link href={'/checkout'}><Button className='rounded-2xl w-24 p-1 border-2 border-black' variant="outline">Checkout</Button></Link>
+                      <Link href={'/product-comparison'}><Button className='rounded-2xl w-28 p-1 border-2 border-black' variant="outline">Comparison </Button></Link>
                     </div>
                   </div>
                 </div>

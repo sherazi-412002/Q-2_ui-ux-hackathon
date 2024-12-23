@@ -27,7 +27,7 @@ const RoomInpiration = () => {
       </div>
 
       {/* Carousel Section */}
-      <div className='flex-1 hidden lg:block'>
+      <div className='flex-1 hidden xl:block'>
         <Carousel>
           <CarouselContent className='flex space-x-5 overflow-hidden'>
             {/* Adjust the width to show only two items */}

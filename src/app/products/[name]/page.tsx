@@ -107,13 +107,13 @@ const ProductDetail: React.FC = () => {
   }
 
   return (
-    <div className="w-full mt-[100px] px-5 sm:px-10 md:px-20 lg:px-[100px] flex flex-col lg:flex-row lg:justify-between lg:pt-[35px]">
+    <div className="w-full mt-[100px] px-5 pt-10 xl:pt-0 justify-center gap-5 lg:px-[100px] flex flex-col lg:flex-row lg:justify-between lg:pt-[35px]">
       <Image
         src={product.image}
         alt={product.name}
         height={1000}
         width={1000}
-        className="h-[300px] w-auto sm:h-[350px] md:h-[400px] lg:h-[391px] lg:w-[481px] mx-auto lg:ml-[71px] lg:mt-[78px]"
+        className="h-[300px] w-auto sm:h-[350px] md:h-[400px] lg:h-[391px] lg:w-[481px] mx-auto xl:ml-[71px] lg:mt-[78px]"
       />
       <div className="space-y-4 mt-5 lg:mt-0">
         <h1 className="text-[28px] sm:text-[32px] lg:text-[42px]">{product.name}</h1>

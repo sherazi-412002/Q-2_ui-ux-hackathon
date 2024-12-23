@@ -9,7 +9,7 @@ function Contact() {
   return (
     <div>
       {/* Get in Touch Section */}
-      <div className="mt-[50px] lg:mt-[98px] flex flex-col justify-center text-center w-full mx-auto max-w-[1140px] px-4 sm:px-6">
+      <div className="mt-[50px] lg:mt-[98px] flex flex-col justify-center text-center w-full mx-auto px-4 sm:px-6">
         <h2 className="text-[28px] md:text-[36px] font-semibold">
           Get In Touch With Us
         </h2>
@@ -23,9 +23,9 @@ function Contact() {
       </div>
 
       {/* Contact Details and Form */}
-      <div className="flex flex-col lg:flex-row justify-center mx-auto mt-[50px] lg:mt-[110px] px-4 pb-[63px] sm:px-6 gap-10 lg:gap-[50px] max-w-[1140px]">
+      <div className="flex flex-col lg:flex-row justify-center  mx-auto mt-[50px] lg:mt-[110px] px-4 pb-[63px] sm:px-6 gap-10 lg:gap-[50px] max-w-[1140px]">
         {/* Contact Details */}
-        <div className="flex flex-col w-full lg:w-[393px]">
+        <div className="flex flex-col w-full items-center lg:w-[393px]">
           <ul className="space-y-10">
             <li className="flex gap-5">
               <Image

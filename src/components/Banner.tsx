@@ -26,7 +26,7 @@ const Banner:React.FC<chilProps> = (props) => {
   return (
     <div>
               {/* Top Section */}
-     <div className="TopBackgroundImg w-full lg:w-[1440px] flex flex-col items-center text-center h-[316px] pt-[61px] mt-[100px] px-4 sm:px-8">
+     <div className="TopBackgroundImg w-full flex flex-col items-center text-center h-[316px] pt-[61px] mt-[100px] px-4 sm:px-8">
         <Image
           src={logo}
           alt="logo"

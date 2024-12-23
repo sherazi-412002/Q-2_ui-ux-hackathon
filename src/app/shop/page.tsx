@@ -2,7 +2,7 @@ import React from 'react'
 import ciIcon from '../../../public/ci_grid-big-round.png'
 import biIcon from '../../../public/bi_view-list.png'
 import systemIcon from '../../../public/system-uicons_filtering.png'
-import { data2 } from '../../data/productData'
+import { data2, Products } from '../../data/productData'
 import shareIcon from '../../../public/gridicons_share.png' 
 import compareIcon from '../../../public/compare-svgrepo-com 1.png' 
 import likeIcon from '../../../public/Vector (5).png' 
@@ -10,17 +10,18 @@ import Image from 'next/image'
 import AboutWeb from '@/components/AboutWeb'
 import Banner from '@/components/Banner'
 import { PaginationOfPages } from '@/components/Pagination'
+import Link from 'next/link'
 
 function page() {
   return (
-    <div className="max-w-[1440px] w-full flex flex-col items-center"> {/* */}
+    <div className="w-full"> {/* */}
 
       {/* Top Banner */}
       <Banner pageTitle='Shop' mainPage='Home' currentPage='Shop'/>
 
 
       {/* Middle Section */}
-      <div className="w-full lg:w-[1440px] h-auto flex flex-wrap items-center justify-around bg-[#F9F1E7] px-4 py-6">
+      <div className="w-full h-auto flex flex-wrap items-center justify-around bg-[#F9F1E7] px-4 py-6">
         <div className="flex gap-[15px] md:gap-[25px]">
           <div className="flex items-center gap-2">
             <Image
@@ -62,10 +63,11 @@ function page() {
       </div>
 
       {/* Product Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[16px] md:gap-[32px] px-4 mt-[46px]">
-      {data2.map((product, index) => (
+      <div className="grid grid-cols-1 max-w-[1236px] mx-[10%] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px] md:gap-[32px] mt-[46px]">
+      {data2.map((product:Products) => (
+        
+        <Link key={product.id} href={`/shop/${product.name}`} passHref>
         <div
-          key={index}
           className="relative w-[285px] h-[446px] border border-gray-200 shadow-lg overflow-hidden group"
         >
           {/* Discount or New Tag */}
@@ -144,8 +146,10 @@ function page() {
             </div>
           </div>
         </div>
+        </Link>
       ))}
     </div>
+    
 
       {/* Pagination */}
       <div className="flex justify-center  mt-[60px] mb-[85px]">
