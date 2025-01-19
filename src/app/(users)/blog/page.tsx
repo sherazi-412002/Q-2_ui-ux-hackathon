@@ -1,19 +1,19 @@
 import Image from 'next/image';
 import React from 'react';
-import blogImg1 from '../../../public/Rectangle 68.png';
-import blogImg2 from '../../../public/Rectangle 68 (1).png';
-import blogImg3 from '../../../public/Rectangle 68 (2).png';
+import blogImg1 from '../../../../public/Rectangle 68.png';
+import blogImg2 from '../../../../public/Rectangle 68 (1).png';
+import blogImg3 from '../../../../public/Rectangle 68 (2).png';
 
-import post1 from '../../../public/Rectangle 69.png';
-import post2 from '../../../public/Rectangle 69 (1).png';
-import post3 from '../../../public/Rectangle 69 (2).png';
-import post4 from '../../../public/Rectangle 69 (3).png';
-import post5 from '../../../public/Rectangle 69 (4).png';
+import post1 from '../../../../public/Rectangle 69.png';
+import post2 from '../../../../public/Rectangle 69 (1).png';
+import post3 from '../../../../public/Rectangle 69 (2).png';
+import post4 from '../../../../public/Rectangle 69 (3).png';
+import post5 from '../../../../public/Rectangle 69 (4).png';
 
-import admin from '../../../public/dashicons_admin-users.png';
-import calender from '../../../public/uis_calender.png';
-import tag from '../../../public/ci_tag.png';
-import searchIcon from '../../../public/akar-icons_search (1).png';
+import admin from '../../../../public/dashicons_admin-users.png';
+import calender from '../../../../public/uis_calender.png';
+import tag from '../../../../public/ci_tag.png';
+import searchIcon from '../../../../public/akar-icons_search (1).png';
 import AboutWeb from '@/components/AboutWeb';
 import { PaginationOfPages } from '@/components/Pagination';
 import Banner from '@/components/Banner';

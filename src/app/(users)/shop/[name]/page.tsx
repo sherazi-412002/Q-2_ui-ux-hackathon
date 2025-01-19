@@ -1,7 +1,7 @@
 'use client'
-import { data } from '../../../data/productData'; // Import product data
+import { data } from '../../../../data/productData'; // Import product data
 import React from 'react';
-import { Products } from '../../../data/productData';
+import { Products } from '../../../../data/productData';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { IoStar } from "react-icons/io5";

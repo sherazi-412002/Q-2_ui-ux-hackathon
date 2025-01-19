@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
-import cartItem from '../../../public/Group 146.png'
-import deleteIcon from '../../../public/ant-design_delete-filled.png'
+import cartItem from '../../../../public/Group 146.png'
+import deleteIcon from '../../../../public/ant-design_delete-filled.png'
 import AboutWeb from '@/components/AboutWeb';
 import Banner from '@/components/Banner';
 import Link from 'next/link';
