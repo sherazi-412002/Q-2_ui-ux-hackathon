@@ -1,28 +1,37 @@
 'use client'
-import React, { useState } from 'react'
+
 import logo from "../../public/Meubel House_Logos-05.png";
 import alertPic from '../../public/mdi_account-alert-outline.png';
-
-import cartItem1 from '../../public/Group 146 (1).png';
-import cartItem2 from '../../public/Group 146 (2).png';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Button } from './ui/button';
 import { Menu } from 'lucide-react';
-import { BsBagX } from "react-icons/bs";
-import { IoCloseCircle } from "react-icons/io5";
-import { LuHeart, LuSearch, LuShoppingCart } from 'react-icons/lu';
+import { BsCart } from "react-icons/bs";
+import { LuHeart, LuSearch} from 'react-icons/lu';
 import { usePathname } from 'next/navigation';
+import { RootState } from '@/app/redux/store';
+import { useSelector } from 'react-redux';
+import CartItem from "./CartItem";
+import { useState } from "react";
 
 
 
-<BsBagX />
+
+
 
 const Navbar = () => {
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSheet = () => {
+    setIsOpen(!isOpen);
+  };
+
   const pathName = usePathname();
+
+  const item = useSelector((state:RootState) => state.cart.items)
 
 
   return (
@@ -31,7 +40,8 @@ const Navbar = () => {
         <nav className='flex justify-around items-center top-0 w-full h-[100px] shadow-md shadow-[#dbdada] fixed z-50'>
           <div className='flex items-center'>
             <Image src={logo} alt='logo' width={500} height={500} className='w-[35px] xl:w-[50px] h-[26px] xl:h-[32px]'/>
-            <h1 className='text-[24px] xl:text-[34px]  font-bold'>Furniro.</h1>
+            <h1 className='text-[24px] xl:text-[34px]  font-bold'>
+            FurniSphere.</h1>
           </div>
 
           <div>
@@ -62,63 +72,24 @@ const Navbar = () => {
             <Image src={alertPic} alt='alert' width={1000} height={1000} className='w-[28px] h-[28px]'/>
             <LuSearch className='w-[28px] h-[28px]'/>
             <LuHeart className='w-[28px] h-[28px]' />
-            <button  onClick={() => setIsSheetOpen(true)}>
-              <LuShoppingCart className='w-[28px] h-[28px]'/>
-            </button>
-          
-
-            {/* Cart Section */}
-
-
-            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-              <SheetContent side={"right"} className='w-[85vw] h-[70vh] sm:w-[500px] lg:w-[1000px] sm:h-[90vh] flex flex-col justify-between'>
-                <SheetTitle>
-                  <h1 className='text-[34px] font-bold'>Shopping Cart</h1> 
-                </SheetTitle>
-                <hr />
-                <div className='mt-6 lg:mt-[42px] '>
-                   <div className='flex flex-col gap-5'>
-                    <div className='flex justify-around items-center'> 
-                      <Image src={cartItem1} alt='cartItem1' height={1000} width={1000} className='w-[108px] h-[105px] rounded-lg'/>
-                      <div>
-                        <p>Asgaard sofa</p>
-                        <p>1 x <span className='text-primary1'>Rs 250,000.00</span></p>
-                      </div>
-                      <div><IoCloseCircle size={30} /></div>
-                    </div>
-
-                    <div className='flex justify-around items-center'> 
-                      <Image src={cartItem2} alt='cartItem1' height={1000} width={1000} className='w-[108px] h-[105px] rounded-lg'/>
-                      <div>
-                        <p>Casaliving Wood</p>
-                        <p>1 x <span className='text-primary1'>Rs 270,000.00</span></p>
-                      </div>
-                      <div><IoCloseCircle size={30} /></div>
-                    </div>
-                 
-                  </div>
-
-
-                  <div className='flex flex-col gap-7 mt-[80px] lg:mt-[160px]'>
-                    <div className='flex'>
-                      <p className='ml-[31px]'>Subtotal</p>
-                      <p className='text-primary1 ml-[101px]'>Rs 520,000.00</p>
-                    </div>
-                    <hr />
-                    <div className='text-[12px] flex justify-around mb-5'>
-                      <Link href={'/cart'}><Button onClick={()=> (!isSheetOpen)} className='rounded-2xl w-20 p-1 border-2 border-black' variant="outline">Cart</Button></Link>
-                      <Link href={'/checkout'}><Button className='rounded-2xl w-24 p-1 border-2 border-black' variant="outline">Checkout</Button></Link>
-                      <Link href={'/product-comparison'}><Button className='rounded-2xl w-28 p-1 border-2 border-black' variant="outline">Comparison </Button></Link>
-                    </div>
-                  </div>
-                </div>
-
+            <Sheet open={isOpen} onOpenChange={toggleSheet}>
+              <SheetTrigger asChild>
+                 <BsCart
+                  size={24}
+                  className="cursor-pointer"
+                  onClick={toggleSheet} 
+                />
+              </SheetTrigger>
+              <span className="absolute top-8 right-24 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+                 {item.length} 
+               </span>
+            
+              <SheetContent side="right">
+                <SheetTitle>Your Cart</SheetTitle>
+                <CartItem />
               </SheetContent>
-
-                
-
             </Sheet>
-
+   
           </div>
 
 
@@ -146,9 +117,21 @@ const Navbar = () => {
                     <Image src={alertPic} alt='alert' width={1000} height={1000} className='w-[28px] h-[28px]'/>
                     <LuSearch className='w-[28px] h-[28px]'/>
                     <LuHeart className='w-[28px] h-[28px]' />
-                    <button  onClick={() => setIsSheetOpen(true)}>
-                    <LuShoppingCart className='w-[28px] h-[28px]'/>
-                    </button>  
+                    <Sheet open={isOpen} onOpenChange={toggleSheet}>
+                       <SheetTrigger asChild>     
+                          <BsCart size={24} className="cursor-pointer" onClick={toggleSheet} />
+                          <span className="absolute top-8 right-28 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+                            {item.length} 
+                            </span>   
+                       </SheetTrigger>
+
+                      <SheetContent side="right">
+                       <SheetTitle>Your Cart</SheetTitle>
+                       <CartItem />
+                      </SheetContent>
+                      </Sheet>
+
+                   
                   </div>
 
 
@@ -173,160 +156,4 @@ const Navbar = () => {
 export default Navbar
 
 
-// 'use client'
-// import React, { useState } from 'react';
-// import Image from 'next/image';
-// import Link from 'next/link';
-// import { Sheet, SheetContent, SheetTitle } from './ui/sheet';
-// import { Button } from './ui/button';
-// // import { Menu } from 'lucide-react';
-// import { IoCloseCircle } from "react-icons/io5";
-// import { LuHeart, LuSearch, LuShoppingCart } from 'react-icons/lu';
-// import { usePathname } from 'next/navigation';
-// import { useProductContext } from '@/context/ProductContext'; // Adjust the path if needed
 
-// const Navbar = () => {
-//   const { cart, removeFromCart } = useProductContext(); // Use context
-//   const [isSheetOpen, setIsSheetOpen] = useState(false);
-//   const pathName = usePathname();
-
-//   const calculateSubtotal = () =>
-//     cart.reduce((total:number, item:number) => total + item.price, 0);
-
-//   return (
-//     <div>
-//       <nav className="flex justify-around items-center top-0 w-full h-[100px] shadow-md shadow-[#dbdada] fixed z-50">
-//         <div className="flex items-center">
-//           <Image
-//             src="/Meubel House_Logos-05.png"
-//             alt="logo"
-//             width={500}
-//             height={500}
-//             className="w-[35px] xl:w-[50px] h-[26px] xl:h-[32px]"
-//           />
-//           <h1 className="text-[24px] xl:text-[34px] font-bold">Furniro.</h1>
-//         </div>
-
-//         <div>
-//           <ul className="lg:flex gap-[30px] font-medium xl:gap-[75px] hidden">
-//             <Link href="/">
-//               <li
-//                 className={`hover:text-primary1 transition-all ${
-//                   pathName === "/" ? "text-primary1" : "text-black"
-//                 }`}
-//               >
-//                 Home
-//               </li>
-//             </Link>
-//             <Link href="/shop">
-//               <li
-//                 className={`hover:text-primary1 transition-all ${
-//                   pathName === "/shop" ? "text-primary1" : "text-black"
-//                 }`}
-//               >
-//                 Shop
-//               </li>
-//             </Link>
-//             <Link href="/blog">
-//               <li
-//                 className={`hover:text-primary1 transition-all ${
-//                   pathName === "/blog" ? "text-primary1" : "text-black"
-//                 }`}
-//               >
-//                 Blog
-//               </li>
-//             </Link>
-//             <Link href="/contact">
-//               <li
-//                 className={`hover:text-primary1 transition-all ${
-//                   pathName === "/contact" ? "text-primary1" : "text-black"
-//                 }`}
-//               >
-//                 Contact
-//               </li>
-//             </Link>
-//           </ul>
-//         </div>
-
-//         <div className="lg:flex gap-[15px] xl:gap-[45px] hidden">
-//           <LuSearch className="w-[28px] h-[28px]" />
-//           <LuHeart className="w-[28px] h-[28px]" />
-//           <button onClick={() => setIsSheetOpen(true)}>
-//             <LuShoppingCart className="w-[28px] h-[28px]" />
-//           </button>
-
-//           {/* Cart Section */}
-//           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-//             <SheetContent
-//               side={"right"}
-//               className="w-[85vw] sm:w-[500px] lg:w-[1000px] sm:h-[90vh] flex flex-col justify-between"
-//             >
-//               <SheetTitle>
-//                 <h1 className="text-[34px] font-bold">Shopping Cart</h1>
-//               </SheetTitle>
-//               <hr />
-//               <div className="mt-6 lg:mt-[42px]">
-//                 <div className="flex flex-col gap-5">
-//                   {cart.length ? (
-//                     cart.map((item) => (
-//                       <div
-//                         key={item.id}
-//                         className="flex justify-around items-center"
-//                       >
-//                         <Image
-//                           src={item.image}
-//                           alt={item.name}
-//                           height={1000}
-//                           width={1000}
-//                           className="w-[108px] h-[105px] rounded-lg"
-//                         />
-//                         <div>
-//                           <p>{item.name}</p>
-//                           <p>
-//                             1 x{" "}
-//                             <span className="text-primary1">
-//                               Rs {item.price.toLocaleString()}
-//                             </span>
-//                           </p>
-//                         </div>
-//                         <button onClick={() => removeFromCart(item.id)}>
-//                           <IoCloseCircle size={30} />
-//                         </button>
-//                       </div>
-//                     ))
-//                   ) : (
-//                     <p>Your cart is empty!</p>
-//                   )}
-//                 </div>
-
-//                 <div className="flex flex-col gap-7 mt-[80px] lg:mt-[160px]">
-//                   <div className="flex justify-between px-4">
-//                     <p>Subtotal</p>
-//                     <p className="text-primary1">
-//                       Rs {calculateSubtotal().toLocaleString()}
-//                     </p>
-//                   </div>
-//                   <hr />
-//                   <div className="text-[12px] flex justify-around mb-5">
-//                     <Link href="/cart">
-//                       <Button className="rounded-2xl w-20 p-1 border-2 border-black" variant="outline">
-//                         Cart
-//                       </Button>
-//                     </Link>
-//                     <Link href="/checkout">
-//                       <Button className="rounded-2xl w-24 p-1 border-2 border-black" variant="outline">
-//                         Checkout
-//                       </Button>
-//                     </Link>
-//                   </div>
-//                 </div>
-//               </div>
-//             </SheetContent>
-//           </Sheet>
-//         </div>
-//       </nav>
-//     </div>
-//   );
-// };
-
-// export default Navbar;

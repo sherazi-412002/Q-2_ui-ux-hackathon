@@ -1,12 +1,32 @@
 'use client'
 import { data } from '../../../../data/productData'; // Import product data
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Products } from '../../../../data/productData';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { IoStar } from "react-icons/io5";
+import { useDispatch } from 'react-redux';
+import { add } from '@/app/redux/cartslice';
 
 const ProductDetail: React.FC = () => {
+
+  const [products, setProducts] = useState<Products[]>([]);
+  const dispatch = useDispatch();
+
+  const getProducts = useCallback(() => {
+    setProducts(products);
+  }, [products]);
+  
+  const handleAdd = (product: Products) => {
+    dispatch(add(product));
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
+
+
   const { name } = useParams();
   // Get product ID from route
 
@@ -18,6 +38,8 @@ const ProductDetail: React.FC = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
+
+
 
   return (
     <div className="w-full mt-[100px] px-5 pt-10 xl:pt-0 justify-center gap-5 lg:px-[100px] flex flex-col lg:flex-row lg:justify-between lg:pt-[35px]">
@@ -83,7 +105,7 @@ const ProductDetail: React.FC = () => {
             <span>1</span>
             <span>+</span>
           </button>
-          <button className="rounded-lg border-2 border-black h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] lg:w-[215px] text-xs sm:text-sm lg:text-base">
+          <button onClick={()=>handleAdd(product)} className="rounded-lg border-2 border-black hover:bg-primary1 hover:text-white h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] lg:w-[215px] text-xs sm:text-sm lg:text-base">
             Add To Cart
           </button>
           <button className="rounded-lg border-2 border-black h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] lg:w-[215px] text-xs sm:text-sm lg:text-base">

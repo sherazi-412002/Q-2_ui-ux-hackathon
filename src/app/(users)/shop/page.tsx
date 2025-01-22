@@ -1,4 +1,4 @@
-import React from 'react'
+"use client"
 import ciIcon from '../../../../public/ci_grid-big-round.png'
 import biIcon from '../../../../public/bi_view-list.png'
 import systemIcon from '../../../../public/system-uicons_filtering.png'
@@ -11,8 +11,26 @@ import AboutWeb from '@/components/AboutWeb'
 import Banner from '@/components/Banner'
 import { PaginationOfPages } from '@/components/Pagination'
 import Link from 'next/link'
+import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { add } from "../../redux/cartslice";
 
-function page() {
+function Shop() {
+  const [products, setProducts] = useState<Products[]>([]);
+  const dispatch = useDispatch();
+
+  const getProducts = useCallback(() => {
+    setProducts(products);
+  }, [products]);
+  
+  const handleAdd = (product: Products) => {
+    dispatch(add(product));
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
   return (
     <div className="w-full"> {/* */}
 
@@ -64,8 +82,9 @@ function page() {
 
       {/* Product Section */}
       <div className="grid grid-cols-1 max-w-[1236px] mx-[10%] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px] md:gap-[32px] mt-[46px]">
+      
       {data2.map((product:Products) => (
-        
+       <> 
         <Link key={product.id} href={`/shop/${product.name}`} passHref>
         <div
           className="relative w-[285px] h-[446px] border border-gray-200 shadow-lg overflow-hidden group"
@@ -94,7 +113,7 @@ function page() {
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-gray-800 bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
             {/* Add to Cart Button */}
-            <button className="bg-white text-primary1 font-semibold  py-2 px-4 w-[202px] h-[48px] shadow-md border-2 border-primary1">
+            <button onClick={()=>handleAdd(product)} className="bg-white text-primary1 font-semibold  py-2 px-4 w-[202px] h-[48px] shadow-md border-2 border-primary1">
               Add to Cart
             </button>
             {/* Icons Section */}
@@ -147,6 +166,7 @@ function page() {
           </div>
         </div>
         </Link>
+      </>
       ))}
     </div>
     
@@ -164,4 +184,4 @@ function page() {
   )
 }
 
-export default page
+export default Shop
