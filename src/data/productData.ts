@@ -8,7 +8,18 @@ export interface Products {
     price:number,
     isNew:boolean,
     description:string,
-    hasDiscount:boolean
+    hasDiscount:boolean,
+    
+}
+export interface Products {
+    id:number,
+    name:string,
+    image:string,
+    OriginalPrice?:number,
+    price:number,
+    isNew:boolean,
+    description:string,
+    hasDiscount:boolean,
     
 }
 

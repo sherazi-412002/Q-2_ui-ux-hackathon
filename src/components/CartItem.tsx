@@ -7,18 +7,21 @@ import { Button } from '@/components/ui/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../app/redux/store';
 import { remove } from '../app/redux/cartslice';
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+// import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
-interface CartItem {
+export interface CartItem {
   id: number;
   name: string;
   price: number;
   image: string;
+
 }
 
 const CartItem: React.FC = () => {
     const dispatch = useDispatch();
     const cartItems: CartItem[] = useSelector((state: RootState) => state.cart.items);
+
+  
     
     const handleRemove = (id: number) => {
       dispatch(remove(id));
@@ -28,14 +31,6 @@ const CartItem: React.FC = () => {
   
     return (
       <>
-        <Sheet>
-          <SheetTrigger asChild>
-            <button  className="open-cart-button">Open Cart</button>
-          </SheetTrigger>
-          <SheetContent side={"right"} className="w-[85vw] h-[70vh] sm:w-[500px] lg:w-[1000px] sm:h-[90vh] flex flex-col justify-between">
-            <SheetTitle >
-              <h1 className="text-[34px] font-bold">Shopping Cart</h1>
-            </SheetTitle>
             {cartItems.length > 0 ? (
               cartItems.map((item: CartItem) => (
                 <div className="mt-6 lg:mt-[42px]" key={item.id}>
@@ -67,13 +62,8 @@ const CartItem: React.FC = () => {
                 <Link href={'/checkout'}>
                   <Button className="rounded-2xl w-24 p-1 border-2 border-black" variant="outline">Checkout</Button>
                 </Link>
-                <Link href={'/product-comparison'}>
-                  <Button className="rounded-2xl w-28 p-1 border-2 border-black" variant="outline">Comparison</Button>
-                </Link>
               </div>
             </div>
-          </SheetContent>
-        </Sheet>
       </>
     );
   };

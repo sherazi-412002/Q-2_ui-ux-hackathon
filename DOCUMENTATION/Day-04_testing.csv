@@ -1,1 +1,38 @@
-Test Case Id ,Test Case Description
+Test Case Id ,Test Case Description,Test Steps,Expected Result,Actual Result,Severity Level,Status,Remarks
+TC001,  Checked responsiveness,Inspect Web on Browser ,layout Adjust to every screen size,Responsiveness working ,High,Pssed,Test Successful
+TC002,"Verify that the shop page displays
+ products fetched from the API","Navigate to shop, check API
+ call, verify products displayed","Products Fetched Should be 
+displayed on shop page ","Products displayed properly 
+on shop page",High,Passed ,Test Successful
+TC003,"Verify that clicking on a product 
+opens the detail page dynamically ","Click product, check API call
+verify detail page loads","Product detail page should load 
+dynamically with correct product information","Products detail page displayed dynamically
+ with correct information",High,Passed ,Test Successful
+TC004,"Verify that the Add to Cart
+functionality works as expected","Open product, click Add to 
+Cart verify cart update","Product should be successfully added
+ to the cart, and the cart count should
+ update accordingly","Cart is working properly by 
+adding count while clicking
+ on products cart button",Medium,Passed ,Test Successful
+TC005,"Verify that the checkout button
+ redirects to the checkout page","Add to cart, go to cart, click 
+Checkout verify redirect.","Clicking the Checkout button should
+ redirect to the checkout page without errors ","Checkout page opened 
+Properly as expected",High,Passed ,Test Successful
+TC006,"Verify that clicking the Order Place
+ button does not place the order in
+ the Sanity database","Add to cart, go to cart, click 
+Checkout, fill details, click 
+Order Place","Order should not be placed 
+successfully in the Sanity database","Order is not created on
+ Sanity",Crtical,Fail,Test Failed
+TC007,"Verify that appropriate error 
+messages are displayed if the
+ order fails to place in Sanity","Place order, monitor error
+ response, check error
+ message displayed","User should see an appropriate error
+ message indicating order placement 
+failure",Error is also not shown,High,Fail,Test Failed

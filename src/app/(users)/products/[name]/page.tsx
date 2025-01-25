@@ -10,6 +10,16 @@ import { add } from '@/app/redux/cartslice';
 
 const ProductDetail: React.FC = () => {
 
+  const [quantity, setQuantity] = useState(1);
+
+  const addQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+  
+  const SubtractQuantity = () => {
+    setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1)); // Prevent quantity from going below 1
+  };
+
   const [products, setProducts] = useState<Products[]>([]);
   const dispatch = useDispatch();
 
@@ -34,6 +44,7 @@ const ProductDetail: React.FC = () => {
   const product: Products | undefined = data.find(
     (item) => item.name === name
   );
+
 
   if (!product) {
     return <div>Product not found</div>;
@@ -101,9 +112,10 @@ const ProductDetail: React.FC = () => {
         </div>
         <div className="flex flex-wrap gap-5 lg:gap-[18px]">
           <button className="rounded-lg border-2 border-black space-x-3 sm:space-x-5 lg:space-x-9 h-12 sm:h-14 lg:h-16 w-[90px] sm:w-[100px] lg:w-[123px] text-xs sm:text-sm lg:text-base flex justify-center items-center">
-            <span>-</span>
-            <span>1</span>
-            <span>+</span>
+            <span onClick={quantity > 1 ? SubtractQuantity : undefined} 
+              style={{ cursor: quantity > 1 ? 'pointer' : 'not-allowed' }}>-</span>
+            <span>{quantity}</span>
+            <span onClick={addQuantity}>+</span>
           </button>
           <button onClick={()=>handleAdd(product)} className="rounded-lg border-2 border-black hover:bg-primary1 hover:text-white h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] lg:w-[215px] text-xs sm:text-sm lg:text-base">
             Add To Cart
