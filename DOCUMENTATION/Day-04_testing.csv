@@ -26,7 +26,7 @@ TC006,"Verify that clicking the Order Place
  button does not place the order in
  the Sanity database","Add to cart, go to cart, click 
 Checkout, fill details, click 
-Order Place","Order should not be placed 
+Order Place","Order should be placed 
 successfully in the Sanity database","Order is not created on
  Sanity",Crtical,Fail,Test Failed
 TC007,"Verify that appropriate error 
