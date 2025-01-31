@@ -3,14 +3,12 @@
 import { CartItem } from "@/components/CartItem";
 import { client } from "@/sanity/lib/client";
 import { Customer } from "@/types/customer";
-// import { useSelector } from "react-redux";
 
-// const cartItems: CartItem[] = useSelector((state: RootState  ) => state.cart.items);
 
 
 
 const CreateCustomerInSanity = async (customerInfo:Customer)=>
-    
+
 {
 
 

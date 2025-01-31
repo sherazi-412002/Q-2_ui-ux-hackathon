@@ -1,12 +1,56 @@
 'use client'
 import { data } from '../../../../data/productData'; // Import product data
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Products } from '../../../../data/productData';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { IoStar } from "react-icons/io5";
+import { useDispatch } from 'react-redux';
+import { add } from '@/app/redux/cartslice';
+   
+// export const fetchData = async () => {
+// const data: ProductResponse[] = await client.fetch(
+//   `*[_type == "product" && title.current == $title]{
+//       id,
+//       title,
+//       description,
+//       "slug": slug.current,
+//       "imageUrl": image.asset->url
+//   }`,
+//   { title }
+// );
+// }
+
 
 const ProductDetail: React.FC = () => {
+
+
+  const [quantity, setQuantity] = useState(1);
+  
+  const addQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+  
+  const SubtractQuantity = () => {
+    setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1)); // Prevent quantity from going below 1
+  };
+
+const [cartProducts, setCartProducts] = useState<Products[]>([]);
+const dispatch = useDispatch();
+
+const getProducts = useCallback(() => {
+  setCartProducts(cartProducts);
+}, [cartProducts]);
+
+const handleAdd = (cartProduct: Products) => {
+  dispatch(add(cartProduct));
+};
+
+useEffect(() => {
+  getProducts();
+}, [getProducts]);
+
+
   const { name } = useParams();
   // Get product ID from route
 
@@ -79,11 +123,12 @@ const ProductDetail: React.FC = () => {
         </div>
         <div className="flex flex-wrap gap-5 lg:gap-[18px]">
           <button className="rounded-lg border-2 border-black space-x-3 sm:space-x-5 lg:space-x-9 h-12 sm:h-14 lg:h-16 w-[90px] sm:w-[100px] lg:w-[123px] text-xs sm:text-sm lg:text-base flex justify-center items-center">
-            <span>-</span>
-            <span>1</span>
-            <span>+</span>
+            <span onClick={quantity > 1 ? SubtractQuantity : undefined} 
+             style={{ cursor: quantity > 1 ? 'pointer' : 'not-allowed' }} >-</span>
+            <span >{quantity}</span>
+            <span onClick={addQuantity}>+</span>
           </button>
-          <button className="rounded-lg border-2 border-black h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] xl:w-[215px] text-xs sm:text-sm lg:text-base">
+          <button onClick={()=>{handleAdd(product)}} className="rounded-lg border-2 hover:bg-primary1 hover:text-white border-black h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] xl:w-[215px] text-xs sm:text-sm lg:text-base">
             Add To Cart
           </button>
           <button className="rounded-lg border-2 border-black h-12 sm:h-14 lg:h-16 w-[150px] sm:w-[180px] xl:w-[215px] text-xs sm:text-sm lg:text-base">

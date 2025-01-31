@@ -1,8 +1,7 @@
-"use client"
+
 import ciIcon from '../../../../public/ci_grid-big-round.png'
 import biIcon from '../../../../public/bi_view-list.png'
 import systemIcon from '../../../../public/system-uicons_filtering.png'
-import { data2, Products } from '../../../data/productData'
 import shareIcon from '../../../../public/gridicons_share.png' 
 import compareIcon from '../../../../public/compare-svgrepo-com 1.png' 
 import likeIcon from '../../../../public/Vector (5).png' 
@@ -11,25 +10,56 @@ import AboutWeb from '@/components/AboutWeb'
 import Banner from '@/components/Banner'
 import { PaginationOfPages } from '@/components/Pagination'
 import Link from 'next/link'
-import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { add } from "../../redux/cartslice";
+import { client } from '@/sanity/lib/client'
+import { ProductResponse } from '@/api/product/route'
 
-function Shop() {
-  const [products, setProducts] = useState<Products[]>([]);
-  const dispatch = useDispatch();
 
-  const getProducts = useCallback(() => {
-    setProducts(products);
-  }, [products]);
-  
-  const handleAdd = (product: Products) => {
-    dispatch(add(product));
-  };
+// interface Product {
+//   id: string;
+//   name: string;
+//   image: string;
+//   price: number;
+//   OriginalPrice?: number;
+//   description: string;
+//   isNew: boolean;
+//   hasDiscount?: boolean;
+// }
 
-  useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+// Async function to fetch data
+// async function fetchProducts(): Promise<Products[]> {
+//   const response = await fetch(`http://localhost:3000/api/product`, {
+//     cache: 'no-store', // Ensures fresh data on each request
+//   });
+
+//   return response.json();
+// }
+export interface Product  {
+  _id: string;
+  title: string;
+  imageUrl: string;
+  price: number;
+  tags: string[];
+  dicountPercentage: number;
+  description: string;
+  isNew: boolean;
+};
+
+
+export default async function  Shop() {
+  // const products: Products[] = await fetchProducts();
+  const data: ProductResponse = await client.fetch(`*[_type=="product"]{
+    _id,
+    title,
+    "imageUrl" :productImage.asset -> url,
+    price,
+    tags,
+    dicountPercentage,
+    description,
+    isNew
+}`);
+
+
+
 
   return (
     <div className="w-full"> {/* */}
@@ -79,20 +109,22 @@ function Shop() {
           </p>
         </div>
       </div>
+     
+
 
       {/* Product Section */}
       <div className="grid grid-cols-1 max-w-[1236px] mx-[10%] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px] md:gap-[32px] mt-[46px]">
       
-      {data2.map((product:Products) => (
-       <> 
-        <Link key={product.id} href={`/shop/${product.name}`} passHref>
+      {data.map((product:Product) => (
+       <div key={product._id}> 
+        <Link  href={`/shop/${product.title}`} passHref>
         <div
           className="relative w-[285px] h-[446px] border border-gray-200 shadow-lg overflow-hidden group"
         >
           {/* Discount or New Tag */}
-          {product.hasDiscount && product.OriginalPrice && (
+          {product.price && product.dicountPercentage && (
             <div className="absolute top-[24px] right-[24px] bg-[#E97171] w-[48px] h-[48px] text-white text-sm font-semibold py-[12px] px-2 rounded-[50%]">
-              {product.price / product.OriginalPrice <= 0.5 ? '-50%' : '-30%'}
+              {product.dicountPercentage / product.price <= 0.5 ? '-50%' : '-30%'}
             </div>
           )}
           {product.isNew && (
@@ -103,8 +135,8 @@ function Shop() {
 
           {/* Product Image */}
           <Image
-            src={product.image}
-            alt={product.name}
+            src={product.imageUrl}
+            alt={product.title}
             width={285}
             height={301}
             className="w-full h-[301px] object-cover"
@@ -113,7 +145,7 @@ function Shop() {
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-gray-800 bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
             {/* Add to Cart Button */}
-            <button onClick={()=>handleAdd(product)} className="bg-white text-primary1 font-semibold  py-2 px-4 w-[202px] h-[48px] shadow-md border-2 border-primary1">
+            <button className="bg-white text-primary1 font-semibold  py-2 px-4 w-[202px] h-[48px] shadow-md border-2 border-primary1">
               Add to Cart
             </button>
             {/* Icons Section */}
@@ -153,20 +185,20 @@ function Shop() {
 
           {/* Product Details */}
           <div className="p-4 flex flex-col">
-            <h3 className="text-[24px] font-bold mb-2">{product.name}</h3>
-            <p className="text-[16px] text-gray-500 mb-4">{product.description}</p>
+            <h3 className="text-[24px] font-bold mb-2">{product.title}</h3>
+            <p className="text-[16px] text-gray-500 mb-4 line-clamp-1">{product.description}</p>
 
             {/* Price Section */}
             <div className="flex items-center gap-4">
               <span className="text-[20px] font-semibold text-gray-900">Rp {product.price.toFixed(2)}</span>
-              {product.OriginalPrice ? (
-                <span className="text-sm text-gray-400 line-through">Rp {product.OriginalPrice.toFixed(2)}</span>
+              {product.dicountPercentage ? (
+                <span className="text-sm text-gray-400 line-through">Rp {product.dicountPercentage.toFixed(2)}</span>
               ) : null}
             </div>
           </div>
         </div>
         </Link>
-      </>
+      </div>
       ))}
     </div>
     
@@ -184,4 +216,3 @@ function Shop() {
   )
 }
 
-export default Shop
