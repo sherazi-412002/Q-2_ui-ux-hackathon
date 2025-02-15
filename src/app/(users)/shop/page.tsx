@@ -11,53 +11,21 @@ import Banner from '@/components/Banner'
 import { PaginationOfPages } from '@/components/Pagination'
 import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
-import { ProductResponse } from '@/api/product/route'
+import { Product } from '@/app/api/product/route'
 
 
-// interface Product {
-//   id: string;
-//   name: string;
-//   image: string;
-//   price: number;
-//   OriginalPrice?: number;
-//   description: string;
-//   isNew: boolean;
-//   hasDiscount?: boolean;
-// }
 
-// Async function to fetch data
-// async function fetchProducts(): Promise<Products[]> {
-//   const response = await fetch(`http://localhost:3000/api/product`, {
-//     cache: 'no-store', // Ensures fresh data on each request
-//   });
-
-//   return response.json();
-// }
-export interface Product  {
-  _id: string;
-  title: string;
-  imageUrl: string;
-  price: number;
-  tags: string[];
-  dicountPercentage: number;
-  description: string;
-  isNew: boolean;
-};
-
-
-export default async function  Shop() {
-  // const products: Products[] = await fetchProducts();
-  const data: ProductResponse = await client.fetch(`*[_type=="product"]{
+export default async function Shop() {
+  const data: Product[] = await client.fetch(`*[_type=="product"]{
     _id,
     title,
-    "imageUrl" :productImage.asset -> url,
     price,
     tags,
     dicountPercentage,
     description,
-    isNew
-}`);
-
+    isNew,
+    "imageUrl": productImage.asset->url
+  }`);
 
 
 
@@ -117,7 +85,8 @@ export default async function  Shop() {
       
       {data.map((product:Product) => (
        <div key={product._id}> 
-        <Link  href={`/shop/${product.title}`} passHref>
+        <Link href={`/shop/${product.title}`} passHref>
+
         <div
           className="relative w-[285px] h-[446px] border border-gray-200 shadow-lg overflow-hidden group"
         >
@@ -215,4 +184,5 @@ export default async function  Shop() {
     </div>
   )
 }
+
 

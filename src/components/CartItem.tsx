@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../app/redux/store';
 import { remove } from '../app/redux/cartslice';
+import { Product } from '@/app/api/product/route';
 // import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 export interface CartItem {
@@ -19,7 +20,7 @@ export interface CartItem {
 
 const CartItem: React.FC = () => {
     const dispatch = useDispatch();
-    const cartItems: CartItem[] = useSelector((state: RootState) => state.cart.items);
+    const cartItems: Product[] = useSelector((state: RootState) => state.cart.items);
 
   
     
@@ -32,16 +33,16 @@ const CartItem: React.FC = () => {
     return (
       <>
             {cartItems.length > 0 ? (
-              cartItems.map((item: CartItem) => (
-                <div className="mt-6 lg:mt-[42px]" key={item.id}>
+              cartItems.map((item: Product) => (
+                <div className="mt-6 lg:mt-[42px]" key={item._id}>
                   <div className="flex flex-col gap-5">
                     <div className="flex justify-around items-center">
-                      <Image src={item.image} alt={item.name} width={1000} height={1000} className="w-[108px] h-[105px] rounded-lg" />
+                      <Image src={item.imageUrl} alt={item.title} width={1000} height={1000} className="w-[108px] h-[105px] rounded-lg" />
                       <div>
-                        <p>{item.name}</p>
+                        <p>{item.title}</p>
                         <p>1 x <span className="text-primary1">{item.price}</span></p>
                       </div>
-                      <IoCloseCircle size={30} className="cursor-pointer" onClick={() => handleRemove(item.id)} />
+                      <IoCloseCircle size={30} className="cursor-pointer" onClick={() => handleRemove(item._id)} />
                     </div>
                   </div>
                 </div>

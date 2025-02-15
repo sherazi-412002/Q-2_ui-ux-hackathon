@@ -117,19 +117,23 @@ const Navbar = () => {
                     <Image src={alertPic} alt='alert' width={1000} height={1000} className='w-[28px] h-[28px]'/>
                     <LuSearch className='w-[28px] h-[28px]'/>
                     <LuHeart className='w-[28px] h-[28px]' />
-                    <Sheet open={isOpen} onOpenChange={toggleSheet}>
-                       <SheetTrigger asChild>     
-                          <BsCart size={24} className="cursor-pointer" onClick={toggleSheet} />
-                          <span className="absolute top-8 right-28 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+                    <div>
+                       <Sheet open={isOpen}  onOpenChange={toggleSheet}>
+                         <SheetTrigger asChild>  
+                          <div>   
+                           <BsCart size={24} className="cursor-pointer" onClick={toggleSheet} />
+                           <span className="absolute top-32 right-9 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
                             {item.length} 
-                            </span>   
-                       </SheetTrigger>
+                            </span>
+                          </div>   
+                         </SheetTrigger>
 
-                      <SheetContent side="right">
-                       <SheetTitle>Your Cart</SheetTitle>
-                       <CartItem />
-                      </SheetContent>
-                      </Sheet>
+                          <SheetContent side="right">
+                            <SheetTitle>Your Cart</SheetTitle>
+                            <CartItem />
+                          </SheetContent>
+                        </Sheet>
+                      </div>
 
                    
                   </div>
